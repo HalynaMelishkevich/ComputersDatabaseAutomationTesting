@@ -10,3 +10,4 @@ Feature: Create new computer
     And I select "Apple Inc." company from dropdown
     And I click on "Create this computer" button
     Then "Done! Computer Test computer 1 has been created" message is displayed
+    And Test data deleted
