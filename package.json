@@ -1,0 +1,26 @@
+{
+  "name": "computersdatabaseautomationtesting",
+  "version": "1.0.0",
+  "description": "Test automation project for \"Computers Database\" web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "node scripts/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HalynaMelishkevich/ComputersDatabaseAutomationTesting.git"
+  },
+  "author": "Halyna Melishkevych",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HalynaMelishkevich/ComputersDatabaseAutomationTesting/issues"
+  },
+  "homepage": "https://github.com/HalynaMelishkevich/ComputersDatabaseAutomationTesting#readme",
+  "devDependencies": {
+    "cypress": "^3.2.0",
+    "cypress-cucumber-preprocessor": "^1.11.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+}
