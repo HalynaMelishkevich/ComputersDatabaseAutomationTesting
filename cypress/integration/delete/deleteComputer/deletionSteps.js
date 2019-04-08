@@ -12,14 +12,15 @@ Given(`I open test computer`, () => {
     cy.request('POST', `${BASE_URL}/computers?name=${encodeURI(computer.name)}&introduced=${computer.introducedDate}&discontinued=${computer.discontinuedDate}&company=${computer.companyId}`)
         .request('GET', `${BASE_URL}/computers?f=${encodeURI(computer.name)}`)
         .then((response) => {
-            return response.body.match('<td><a href="\/computers\/....')[0].slice(-4);
+            return response.body.match('<td><a href="\/computers\/....')[0].match(/\d+/)[0];
         }).then((id) => {
         cy.visit(`${BASE_URL}/computers/${id}`);
     });
 });
 
 When('I click on "Delete this computer" button', () => {
-    cy.scrollTo('top').get('.btn.danger').click('bottom');
+    cy.scrollTo('top');
+    cy.get('.btn.danger').click('bottom', { force: true});
 });
 
 Then('I see "Done! Computer has been deleted" in the title', () => {

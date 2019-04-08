@@ -47,7 +47,7 @@ Then(`"Done! Computer Test computer 1 has been created" message is displayed`, (
 Then(`Test data deleted`, () => {
     cy.request('GET', `http://computer-database.gatling.io/computers?f=${encodeURI(computer.name)}`)
     .then((response) => {
-        const id = response.body.match('<td><a href="\/computers\/....')[0].slice(-4);
+        const id = response.body.match('<td><a href="\/computers\/....')[0].match(/\d+/)[0];
         cy.request('POST', `${BASE_URL}/computers/${id}/delete`);
     })
 });
